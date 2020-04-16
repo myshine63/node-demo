@@ -17,6 +17,8 @@ const url = require('url');
 const urlString = 'https://tom:123@www.baidu.com:8080/html/img?query=tom#hash'
 let oldUrlObj = url.parse(urlString); // 旧版本的url对象
 console.log(oldUrlObj);
+
+
 /*
  {
   protocol: 'https:',
@@ -36,6 +38,7 @@ console.log(oldUrlObj);
 
 let whatwgUrlObj = new URL(urlString);// 创建符合whatwg标准的URl对象
 console.log(whatwgUrlObj.searchParams);
+
 /*
  {
   href: 'https://tom:123@www.baidu.com:8080/html/img?query=tom#hash',
@@ -53,3 +56,4 @@ console.log(whatwgUrlObj.searchParams);
  }
  */
 console.log(whatwgUrlObj.searchParams.get('query'));
+console.log(whatwgUrlObj.toString()) // 转换成字符串，新版本的才可以
