@@ -24,14 +24,16 @@ const server = http.createServer(((req, res) => {
     res.write(createElement(JSON.stringify(req.headers)), 'utf8'); // 获取请求投头
     res.write(createElement(data), 'utf8'); // 获取请求数据
     res.write(createElement(req.url), 'utf8'); // 获取请求数据
-
+    // 结束响应
     res.end();
   })
 
 }))
+// 当有新的请求到达时触发
 server.on('connection', () => {
   console.log('访问成功')
 })
+// 启动服务器，监听端口
 server.listen(3000, () => {
   console.log('开始监听')
 })
