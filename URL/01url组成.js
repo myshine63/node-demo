@@ -15,7 +15,7 @@
  */
 const url = require('url');
 const urlString = 'https://tom:123@www.baidu.com:8080/html/img?query=tom#hash'
-let oldUrlObj = url.parse(urlString);
+let oldUrlObj = url.parse(urlString); // 旧版本的url对象
 console.log(oldUrlObj);
 /*
  {
@@ -34,7 +34,7 @@ console.log(oldUrlObj);
  }
   */
 
-let whatwgUrlObj = new URL(urlString);
+let whatwgUrlObj = new URL(urlString);// 创建符合whatwg标准的URl对象
 console.log(whatwgUrlObj.searchParams);
 /*
  {
