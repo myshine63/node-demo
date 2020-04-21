@@ -12,4 +12,4 @@ client.write('hello word', 'utf8')
 // 接受服务器数据
 client.on('data', (chunk) => {
   console.log(chunk.toString());
-})
+});
