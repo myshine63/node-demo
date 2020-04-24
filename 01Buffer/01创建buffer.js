@@ -14,7 +14,7 @@ function alloc() {
     console.log(flag);
 }
 
-alloc();
+// alloc();
 // allocUnsafe创建的buff的size小于poolSize/2时会使用默认的buff内存池分配内存。
 // 而且分配时没有进行初始化，可能保护旧数据
 function allocUnsafe() {
@@ -25,11 +25,11 @@ function allocUnsafe() {
     console.log(b);
 }
 
-allocUnsafe();
+// allocUnsafe();
 
 function from() {
     let a = Buffer.from([1, 2, 3]); // 数组的每个元素需要为数字
-    let b = Buffer.from("abc"); // 默认utf8编码
+    let b = Buffer.from("abc",0,20); // 默认utf8编码
     let c = Buffer.from(b); // 复制一个buffer
     console.log(a);
     console.log(b);
