@@ -21,7 +21,7 @@ UserSchema.statics.searchTom = function () {
 
 // 在schema上定义query
 UserSchema.query.getTom = function () {
-  this.find({name: 'tom'}, (err, users) => {
+  this.find({name: 'Tom'}, (err, users) => {
     console.log(users)
   });
 }
@@ -30,7 +30,7 @@ const UserModel = mongoose.model("user", UserSchema)
 
 // 创建一个实例
 let user = new UserModel({
-  name: 'spike',
+  name: 'tom',
   age: 12,
   sex: 1,
   date: '2021-12-02'
@@ -39,6 +39,9 @@ let user = new UserModel({
 user.say(); // 调用实例方法
 
 UserModel.searchTom(); // 调用类方法
+setTimeout(function () {
+  UserModel.find({name:'tom'}).getTom();
+},1000)
 
 
 

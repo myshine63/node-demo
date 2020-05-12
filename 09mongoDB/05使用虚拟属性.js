@@ -7,7 +7,7 @@ const UserSchema = new mongoose.Schema({
   sex: Number,
   birth: Date
 })
-// 创建一个虚拟属性，他讲根据user的sex生成。但是他不会被保存在数据库中
+// 创建一个虚拟属性，它将根据user的sex生成。但是它不会被保存在数据库中
 UserSchema.virtual("male").get(function () {
   return this.sex === 0 ? 'girl' : 'boy'
 }).set(function (val) {
