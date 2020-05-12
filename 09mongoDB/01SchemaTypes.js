@@ -15,6 +15,7 @@ const Product = new Schema({
 })
 
 // 可以通过add方法继续添加属性
+
 Product.add({
   test: {
     type: String,
