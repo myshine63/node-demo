@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 const {UserModel} = require('./02commonModel.js');
-
-// 连接数据库，如果userData不存在，则相当于新建一个userData数据库
+/**
+ * 1.连接数据库，如果userData不存在，则相当于新建一个userData数据库
+ * */
+//
 mongoose.connect('mongodb://localhost/userData', {
   useNewUrlParser: true,
   useUnifiedTopology: true

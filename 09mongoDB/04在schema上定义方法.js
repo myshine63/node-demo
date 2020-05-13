@@ -1,7 +1,11 @@
 const mongoose = require('mongoose');
-// const {UserSchema} = require('./02commonModel.js') // 不能使用引入的schema，因为他已经被编译过了
-
-// 定义一个user集合的属性结构
+/**
+ * 1.已经通过mongoose.model()调用过的schema，不能再添加方法，因此要先定义好方法。
+ * 2.定义方法时，不要使用箭头函数，这样获取不到this对象。
+ * 3.定义在schema.methods上的方法可以被document实例调用
+ * 4.定义在schema.static上的方法可以使用Model.func()调用
+ * 5.定义在schema.query上的方法可以在Model.query.func()使用。
+ * */
 const UserSchema = new mongoose.Schema({
   name: String,
   age: Number,
@@ -10,8 +14,8 @@ const UserSchema = new mongoose.Schema({
 })
 
 // 在schema的methods上定义的方法，都可以被userModel的实例调用
-UserSchema.methods.say = function () {
-  console.log("hello", this.name);
+UserSchema.methods.getUserInfo = function () {
+  console.log(`name is ${this.name},age is ${this.age}`)
 }
 
 // 在schema上创建的静态方法都可以在model上使用
@@ -36,12 +40,11 @@ let user = new UserModel({
   date: '2021-12-02'
 })
 
-user.say(); // 调用实例方法
-
+user.getUserInfo(); // 调用实例方法
 UserModel.searchTom(); // 调用类方法
 setTimeout(function () {
-  UserModel.find({name:'tom'}).getTom();
-},1000)
+  UserModel.find({name: 'tom'}).getTom();
+}, 1000)
 
 
 
