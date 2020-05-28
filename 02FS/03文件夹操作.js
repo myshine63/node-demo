@@ -16,7 +16,7 @@ function createDir() {
 // 读取文件夹
 function readDir() {
   fs.readdir('./createDir', {
-    encoding: "utf8", //返回的files的文件名和文件夹名采用的编码方式，默认是utf8
+    encoding: "utf8", // 返回的files的文件名和文件夹名采用的编码方式，默认是utf8
     withFileTypes: false,// 返回的files的元素类型。
   }, ((err, files) => {
     if (err) throw err;

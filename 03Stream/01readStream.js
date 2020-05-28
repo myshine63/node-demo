@@ -1,6 +1,6 @@
 const fs = require('fs');
 let readStream = fs.createReadStream('./read.txt', {
-  encoding: "utf8",//
+  encoding: "utf8",// 将读取到的数据采用utf8编码
   highWaterMark: 1024, // 每次读取1kb，默认是64kb
 });
 let count = 1;
