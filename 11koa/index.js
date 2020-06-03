@@ -1,24 +1,19 @@
 const Koa = require('koa');
 const app = new Koa();
 
-// 打印 6 1 3 5 4 2
+// 用来处理请求时间的中间件
 app.use(async (ctx, next) => {
-  console.log(1);
-  await next();
-  console.log(2);
+    let start = Date.now();
+    await next(); // next将执行权交给下一个中间件
+    let end = Date.now();
+    console.log(`"${ctx.url}"的请求耗时为${end - start}ms`);
 });
 
-app.use(async (ctx, next) => {
-  console.log(3);
-  await next();
-  console.log(4);
-});
-
-app.use(async ctx => {
-  console.log(5);
-  ctx.body = 'Hello World';
+// 用来处理响应请求的中间件
+app.use((ctx, next) => {
+    ctx.body = 'hello tom'
 });
 
 app.listen(3000, () => {
-  console.log(6);
+    console.log('已经启动3000端口');
 });
