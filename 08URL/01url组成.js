@@ -14,10 +14,11 @@
  * hash:hash
  */
 const url = require('url');
+const queryString = require('querystring');
 const urlString = 'https://tom:123@www.baidu.com:8080/html/img?query=tom#hash'
 let oldUrlObj = url.parse(urlString); // 旧版本的url对象
-console.log(oldUrlObj);
-
+// console.log(oldUrlObj);
+console.log(JSON.stringify(queryString.parse(oldUrlObj.query)))
 
 /*
  {
