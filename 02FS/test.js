@@ -1,7 +1,4 @@
-const fs = require('fs');
-fs.watch('./hello.txt', {
-  encoding: 'utf8'
-}, (event, filename) => {
-  console.log(event);
-  // console.log(filename)
+const fs = require('fs').promises;
+fs.readFile('./test.js').then(data=>{
+    console.log(data.toString('utf8'))
 })
