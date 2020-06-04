@@ -16,3 +16,5 @@ readStream.on('data', chunk => {
 readStream.on('end', () => {
     console.log("读取文件完成");
 });
+
+
