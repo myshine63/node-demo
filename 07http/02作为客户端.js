@@ -5,7 +5,12 @@ const request = http.request({
   hostname: 'localhost',
   port: '3000',
   method: 'post',// 因为要额外提交数据请求方法需要为post
+  headers: {
+    'Connection': 'keep-alive'
+  }
 }, res => {
+  let code = res.statusCode;
+  let message = res.statusMessage;
   res.setEncoding('utf8');
   res.on('data', (chunk) => {
     console.log(`响应数据: ${chunk}`);

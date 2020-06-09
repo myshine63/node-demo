@@ -1,4 +1,4 @@
-const Net = require('net');
+ const Net = require('net');
 
 // 创建一个net客户端，是一个socket对象，因此可以用来发送和接受数据
 let client = new Net.Socket();

@@ -1,10 +1,10 @@
 const fs = require('fs');
-const ws = fs.createWriteStream("./write.txt",);
+const writeStream = fs.createWriteStream("./write.txt",);
 // 会覆盖掉原来的内容
-ws.write("hello spike!");
-ws.end("\r最后传送的数据", () => {
-    console.log('数据传送完毕')
+writeStream.write("hello spike!");
+writeStream.end("\r最后传送的数据", () => {
+  console.log('数据传送完毕')
 });
-ws.on("finish", () => {
-    console.log("完成")
+writeStream.on("finish", () => {
+  console.log("完成")
 });
