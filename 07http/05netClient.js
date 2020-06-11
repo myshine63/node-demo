@@ -4,7 +4,7 @@
 let client = new Net.Socket();
 
 // 连接服务器
-client.connect(8080, '127.0.0.1', () => {
+client.connect(3000, '127.0.0.1', () => {
   console.log('连接成功')
 })
 // 发送数据给服务器
