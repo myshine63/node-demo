@@ -1,9 +1,15 @@
-const Koa = require('koa');
-const http = require('http');
-const app = new Koa()
+function compose(arr) {
+  return function (ctx) {
+    function dispatch(i) {
+      let fn = arr[i];
+      if (!fn) {
+        return Promose.resolve()
+      }
+      return fn(function next() {
+        return Promise.resolve(i + 1);
+      })
+    }
 
-app.use(ctx => {
-  ctx.body = 'hello tom'
-})
-
-http.createServer(app.callback()).listen(3000)
+    dispatch(0);
+  }
+}

@@ -3,7 +3,7 @@ const app = new Koa();
 
 // 用来处理请求时间的中间件
 app.use(async (ctx, next) => {
-  let start = Date.now();
+  let start = Date.now(); //到当前时间的毫秒数
   await next(); // next将执行权交给下一个中间件
   let end = Date.now();
   console.log(`"${ctx.url}"的请求耗时为${end - start}ms`);
