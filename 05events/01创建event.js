@@ -1,7 +1,6 @@
 const EventEmitter = require('events');
 
-class MyEmitter extends EventEmitter {
-}
+class MyEmitter extends EventEmitter {}
 
 let myEmitter = new MyEmitter();
 // 注册事件
