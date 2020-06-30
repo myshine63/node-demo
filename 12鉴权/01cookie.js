@@ -5,12 +5,9 @@ http.createServer(((req, res) => {
     res.end('');
     return;
   }
-  if (req.url === '/user') {
-    res.end('hello jerry')
-  }
-  // 设置cookie
+  // 设置cookie.
   res.writeHead(200, 'ok', {
-    'Set-Cookie': 'name=tom'
+    'Set-Cookie': 'name=tom;httpOnly;Max-Age=360000;'
   })
   res.end('hello tom')
 })).listen(3000, () => {
