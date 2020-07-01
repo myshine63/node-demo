@@ -5,10 +5,10 @@ http.createServer(((req, res) => {
     res.end('');
     return;
   }
-  // 设置cookie.
-  res.writeHead(200, 'ok', {
-    'Set-Cookie': 'name=tom;httpOnly;Max-Age=360000;'
-  })
+  console.log(req.headers.cookie);
+  // 设置cookie,并且设置cookie的过期时间,设置httpOnly后,js脚本将不能读取cookie
+  res.setHeader('Set-Cookie', 'name=tom;httpOnly;Mag-Age=3600000');
+  res.setHeader('Content-Type', 'text/plain;charset=utf8')
   res.end('hello tom')
 })).listen(3000, () => {
   console.log('启动服务')
