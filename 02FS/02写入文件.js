@@ -2,8 +2,10 @@ const fs = require('fs');
 const fsPromise = fs.promises;
 // 使用回调写入数据
 fs.writeFile('./write.txt', Buffer.from('hello spike'), (err => {
+    console.log(123)
     if (err)
         console.log(err.message);
+    console.log(456)
 }))
 // 使用promise写入文件
 fsPromise.writeFile('./writePromise.txt', 'hello tom', {

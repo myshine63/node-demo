@@ -1,4 +1,3 @@
-const fs = require('fs').promises;
-fs.readFile('./test.js').then(data=>{
-    console.log(data.toString('utf8'))
-})
+const os = require('os');
+
+console.log(((os.totalmem()-os.freemem())/os.totalmem()*100).toFixed(2))

@@ -1,4 +1,5 @@
 const fs = require('fs');
+const fsPromise = fs.promises
 
 // 创建文件夹
 function createDir() {
