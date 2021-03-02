@@ -2,7 +2,7 @@ const fs = require('fs');
 
 let readStream = fs.createReadStream('./read.txt', {
   encoding: "utf8",// 对读取到的数据采用的编码方式
-  highWaterMark: 504, // 每次最多读取1024b，默认是64kb
+  highWaterMark: 1024, // 每次最多读取1kb，默认是64kb
 });
 
 let count = 1;

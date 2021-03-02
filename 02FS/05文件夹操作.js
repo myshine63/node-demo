@@ -30,11 +30,11 @@ function readDir() {
 // 删除文件夹
 function deleteDir() {
   fs.rmdir("./createDir", {
-    recursive: false, // 默认直接删除空文件夹，当不会空时，需要为true才能删除文件
+    recursive: true, // 默认直接删除空文件夹，当不会空时，需要为true才能删除文件
   }, err => {
     if (err) throw err;
     console.log("删除文件成功")
   })
 }
 
-// deleteDir();
+deleteDir();

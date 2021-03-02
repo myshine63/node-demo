@@ -1,15 +1,15 @@
-const net = require('net');
+const Koa = require('koa');
+const app = new Koa();
+app.keys = ['tom is a boy', 'spike is very strong'];
 
-const client = net.createConnection(8080, '127.0.0.1', () => {
-  console.log('连接成功')
+app.use(async ctx => {
+  if (ctx.url === '/') {
+    ctx.cookies.set('name', 'jerry', {signed: true})
+    ctx.body = 'hello tom';
+  } else {
+    let name = ctx.cookies.get('name', {signed: true})
+    ctx.body = 'hello ' + name
+  }
 })
 
-client.write('hello tom!')
-client.write('hello spike!')
-client.write('hello jerry!', () => {
-
-})
-
-client.on("data", (chunk) => {
-  console.log(chunk)
-})
+app.listen(3000)

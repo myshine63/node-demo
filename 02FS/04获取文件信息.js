@@ -2,8 +2,7 @@ const fs = require("fs");
 
 fs.stat('./hello.txt', ((err, stats) => {
   if (err) {
-    console.log(err.message)
-    return
+   throw err
   }
   console.log(stats);
   console.log(stats.isFile()); // 判断是不是文件
