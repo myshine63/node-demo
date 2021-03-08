@@ -10,14 +10,14 @@ app.use(ctx => {
   console.log(ctx.url);
   // query是解析后的查询条件对象,用于get请求
   console.log(ctx.query);
+  console.log(ctx.search)
   // 查询字符串，不包含问号，用于get请求
   console.log(ctx.querystring);
   // header和headers是一样的
-  console.log(ctx.header)
-  console.log(ctx.headers)
+  // console.log(ctx.header)
+  // console.log(ctx.headers)
   console.log(ctx.hostname)
   console.log(ctx.host)
-  console.log(ctx.search)
   ctx.body = 'hello tom'
 })
 

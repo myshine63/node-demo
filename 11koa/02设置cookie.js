@@ -10,7 +10,6 @@ app.use(ctx => {
     // expires: new Date('2020-6-10 20:45:46'),
     signed: true
   })
-
   ctx.body = 'hello tom!'
 })
 

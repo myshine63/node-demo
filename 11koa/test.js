@@ -1,19 +1,16 @@
 const Koa = require('koa');
 const app = new Koa();
-
+app.keys=['name']
 app.use(async (ctx, next) => {
-  let start = Date.now();
-  next()
-  let usedTime = Date.now() - start;
-  ctx.set('x-response-time', usedTime + 'ms')
+  let name = ctx.cookies.get('name');
+  console.log(name)
+  await next();
 })
-app.use(async(ctx, next => {
-  ctx.cookie.set(name, '1234')
-  next()
-}))
 app.use(async ctx => {
+  ctx.cookies.set('name', 'tom', {
+    maxAge: 1000,
+    signed: true
+  })
   ctx.body = 'hello tom'
 })
-app.listen(3001, () => {
-  console.log('启动项目')
-})
+app.listen(3000)
