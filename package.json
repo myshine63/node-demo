@@ -21,7 +21,9 @@
     "koa-static": "^5.0.0",
     "koa2-cors": "^2.0.6",
     "mongoose": "^5.9.17",
-    "nodemon": "^2.0.4"
+    "mysql2": "^2.2.5",
+    "nodemon": "^2.0.4",
+    "sequelize": "^6.5.0"
   },
   "devDependencies": {
     "chokidar": "^3.3.1"
