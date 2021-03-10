@@ -10,6 +10,7 @@ const Product = new Schema({
   name: String,
   price: {type: Number, min: 0, max: 100, required: true},
   date: {type: Date, default: Date.now()},
+  comment: [{body: String, date: Date}],
   code: Schema.Types.Mixed,
   keyWord: [String],
   expired: {type: Boolean, default: false},

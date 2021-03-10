@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema
 /**
  * 1.已经通过mongoose.model()调用过的schema，不能再添加方法，因此要先定义好方法。
  * 2.定义方法时，不要使用箭头函数，这样获取不到this对象。
@@ -6,7 +7,7 @@ const mongoose = require('mongoose');
  * 4.定义在schema.static上的方法可以使用Model.func()调用
  * 5.定义在schema.query上的方法可以在Model.query.func()使用。
  * */
-const UserSchema = new mongoose.Schema({
+const UserSchema = new Schema({
   name: String,
   age: Number,
   sex: Number,
@@ -42,9 +43,4 @@ let user = new UserModel({
 
 user.getUserInfo(); // 调用实例方法
 UserModel.searchTom(); // 调用类方法
-setTimeout(function () {
-  UserModel.find({name: 'tom'}).getTom();
-}, 1000)
-
-
 

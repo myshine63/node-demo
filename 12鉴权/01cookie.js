@@ -7,7 +7,7 @@ http.createServer(((req, res) => {
   }
   console.log(req.headers.cookie);
   // 设置cookie,并且设置cookie的过期时间,设置httpOnly后,js脚本将不能读取cookie
-  res.setHeader('Set-Cookie', 'name=tom;httpOnly;Mag-Age=3600000');
+  res.setHeader('Set-Cookie', 'name=tom;httpOnly;Mag-Age=3600000;path=/user');
   res.setHeader('Content-Type', 'text/plain;charset=utf8')
   res.end('hello tom')
 })).listen(3000, () => {

@@ -12,21 +12,16 @@ mongoose.connect('mongodb://localhost/userData', {
 }).catch(() => {
   console.log('连接失败！')
 })
-
-// 方法一：创建一个文档对象
-const doc = new UserModel({
-  name: 'tom',
-  age: 14,
-  sex: 0,
-  birth: '2012-12-12'
-});
-
-doc.save();// 保存数据
-
-// 方法二：直接创建文档对象并保存数据
 UserModel.create({
-  name: 'jerry',
-  age: 12,
-  sex: 1,
-  birth: '2010-12-12'
+  name:'jerry',
+  age:14,
+  sex:0
+})
+UserModel.create({
+  name:'tom',
+  age:14,
+  sex:0
+})
+UserModel.find().where('name').all(['tom','jerry']).exec(docs=>{
+  console.log(docs)
 })
